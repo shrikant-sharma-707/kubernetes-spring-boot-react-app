@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-app-service
+  labels:
+    run: spring-boot-app-service
+spec:
+  selector:
+    app: spring-boot-app-deployment
+  # if type is not specified, then by default it uses the clusterIp which is not accessible inside only but not by brower
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+      #nodePort is the port on which browser will open
+      nodePort: 30002

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app-deployment
+  labels:
+    app: spring-boot-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-app-deployment
+  # template for the pod
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app-deployment
+    # blue prints for container inside pod
+    spec:
+      containers:
+        - image: shrikantsharma606/spring-boot-app:v1
+          # IfNotPresent Always Never
+          imagePullPolicy: Never
+          name: spring-boot-app-deployment
+          ports:
+            - containerPort: 8080
