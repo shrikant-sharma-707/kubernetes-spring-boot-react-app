@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  spring-boot-app-service:
+    image: 'spring-boot-app-image:v1'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-boot-api-container
+    restart: always
+    ports:
+      - '8080:8080'
+    deploy:
+      replicas: 1
+
+
+#  docker-compose up --force-recreate --no-deps --build
