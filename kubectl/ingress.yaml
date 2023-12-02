@@ -3,15 +3,14 @@ kind: Ingress
 metadata:
   name: app-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
   namespace: default
-  # namespace: kubernetes-dashboard
 spec:
-  ingressClassName: nginx
   rules:
-    - http:
+    - host: dashboard.com
+      http:
         paths:
-          - path: '/(/|$)(.*)'
+          - path: /
             pathType: Prefix
             backend:
               service:

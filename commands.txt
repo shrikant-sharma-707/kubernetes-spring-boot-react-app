@@ -1,0 +1,20 @@
+all commands are running in power shell mode
+minikube start
+minikube addons enable metrics-server
+minikube addons enable ingress
+cd backend
+mvn clean install
+docker build -t shrikantsharma606/spring-boot-app:v2 -f Dockerfile .
+cd ..\frontend
+docker build -t shrikantsharma606/react-app:v2 -f Dockerfile .
+cd ..\kubectl
+minikube -p minikube docker-env | Invoke-Expression
+minikube image ls
+kubectl apply -f .\app-configMap.yaml
+kubectl apply -f .\spring-boot-app-deployment.yaml
+kubectl apply -f .\spring-boot-app-service.yaml
+kubectl apply -f .\react-app-deployment.yaml
+kubectl apply -f .\react-app-service.yaml
+kubectl apply -f .\ingress.yaml
+
+

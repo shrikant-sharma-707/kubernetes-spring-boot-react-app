@@ -12,10 +12,8 @@
 
 # build environment
 FROM node:latest as build
-WORKDIR /app
-COPY node_modules node_modules
-COPY package.json package.json
-COPY package-lock.json package-lock.json
+WORKDIR /app 
+COPY package.json package.json 
 # use RUN npm ci --production
 RUN npm install 
 COPY . .

@@ -14,5 +14,3 @@ spec:
       port: 80
       protocol: TCP
       targetPort: 80
-      #nodePort is the port on which browser will open
-      nodePort: 30003

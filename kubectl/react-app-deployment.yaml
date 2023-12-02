@@ -17,7 +17,7 @@ spec:
     # blue prints for container inside pod
     spec:
       containers:
-        - image: shrikantsharma606/react-app:v1
+        - image: shrikantsharma606/react-app:v2
           # IfNotPresent Always Never
           imagePullPolicy: Never
           name: react-app-deployment
